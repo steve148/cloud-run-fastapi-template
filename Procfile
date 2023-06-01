@@ -1,1 +1,1 @@
-web: gunicorn -k uvicorn.workers.UvicornWorker --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+web: uvicorn template_app.main:app --port $PORT --host 0.0.0.0
