@@ -26,8 +26,9 @@ ruff check --fix .
 - Linting with ruff
 - Type checking with mypy
 - Formatting with black
+- Testing with pytest
 
 ## Future
 
-- Testing with pytest
 - Load testing with locust
+- Deploy to Clod Run
