@@ -10,15 +10,24 @@ pack build --builder=gcr.io/buildpacks/builder sample-python
 docker run -it -ePORT=8080 -p8080:8080 sample-python
 ```
 
+## Linting
+
+```bash
+mypy .
+black .
+ruff check --fix .
+```
+
 ## Features
 
 - FastAPI server
 - Poetry for package management
 - No docker image, use buildpacks instead
+- Linting with ruff
+- Type checking with mypy
+- Formatting with black
 
 ## Future
 
-- Linting with mypy and ruff
-- Formatting with black
 - Testing with pytest
 - Load testing with locust
