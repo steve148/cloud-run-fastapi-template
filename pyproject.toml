@@ -8,6 +8,8 @@ packages = [{include = "cloud_run_fastapi_template"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.95.2"}
+gunicorn = "^20.1.0"
 
 
 [build-system]
