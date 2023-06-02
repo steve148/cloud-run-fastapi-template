@@ -30,6 +30,10 @@ run-local-docker:
 deploy:
     gcloud run deploy --source . --allow-unauthenticated
 
+# Start proxy service for accessing cloud run.
+cloud-run-proxy:
+    gcloud beta run services proxy cloud-run-fastapi-template
+
 # Run all checks against code.
 check: format lint type-check
 
