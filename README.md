@@ -2,20 +2,16 @@
 
 My take on building a template for running FastAPI on Google Cloud Run.
 
-## Local development
+## Getting started
 
 ```bash
-poetry export -f requirements.txt --output requirements.txt --without-hashes
-pack build --builder=gcr.io/buildpacks/builder sample-python
-docker run -it -ePORT=8080 -p8080:8080 sample-python
+just init
 ```
 
-## Linting
+## Commands
 
 ```bash
-mypy .
-black .
-ruff check --fix .
+just --list
 ```
 
 ## Features
@@ -23,6 +19,7 @@ ruff check --fix .
 - FastAPI server
 - Poetry for package management
 - No docker image, use buildpacks instead
+- Commands with just
 - Linting with ruff
 - Type checking with mypy
 - Formatting with black
@@ -31,7 +28,7 @@ ruff check --fix .
 ## Future
 
 - Load testing with locust
-- Deploy to Clod Run
+- Deploy to Cloud Run
 - SQL database with SQLAlchemy
 - SQL migrations with Alembic
 - CI with CloudBuild
