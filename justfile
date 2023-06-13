@@ -26,7 +26,7 @@ run-local:
 
 # Run the application within local docker container.
 run-local-docker:
-    poetry export -f requirements.txt --output requirements.txt --without-hashes
+    poetry export -f requirements.txt --output requirements.txt
     pack build --builder=gcr.io/buildpacks/builder template-app
     docker run -it -ePORT=8080 -p8080:8080 template-app
 
