@@ -3,7 +3,7 @@ default:
     just --list
 
 # Initialize the project.
-init: init-setup install
+init: init-setup install init-git-hooks
 
 # Install all required tools.
 init-setup:
@@ -11,6 +11,10 @@ init-setup:
     pyenv local
     pip install --upgrade pip
     pip install poetry
+
+# Setup git hooks.
+init-git-hooks:
+    poetry run pre-commit install
 
 # Install python dependencies.
 install:
