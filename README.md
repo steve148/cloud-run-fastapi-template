@@ -18,7 +18,7 @@ just --list
 
 - FastAPI server
 - Poetry for package management
-- No docker image, use buildpacks instead
+- Buildpacks for building container images
 - Commands with just
 - Linting with ruff
 - Type checking with mypy
@@ -33,7 +33,6 @@ just --list
 - SQL migrations with Alembic
 - CI with CloudBuild
 - CD with CloudBuild
-- Replace buildpack with Dockerfile and Skaffold for local development
 - Pre commit hooks for all CI checks
 - CORS middleware
 - Settings via environment variables and .env file
