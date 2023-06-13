@@ -9,7 +9,7 @@ init: init-setup install init-git-hooks
 init-setup:
     pyenv install --skip-existing < .python-version
     pyenv local
-    pip install --upgrade pip
+    pip install --upgrade pip poetry
     pip install poetry
 
 # Setup git hooks.
