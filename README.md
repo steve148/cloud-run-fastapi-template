@@ -25,16 +25,14 @@ just --list
 - Formatting with black
 - Testing with pytest
 - Pre commit hooks for CI checks
+- SQL database with SQLAlchemy
 
 ## Future
 
 - Load testing with locust
-- Deploy to Cloud Run
-- SQL database with SQLAlchemy
 - SQL migrations with Alembic
 - CI with CloudBuild
 - CD with CloudBuild
-
 - CORS middleware
 - Settings via environment variables and .env file
 - More convention for organizing app code
