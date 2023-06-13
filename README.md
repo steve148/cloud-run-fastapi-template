@@ -24,6 +24,7 @@ just --list
 - Type checking with mypy
 - Formatting with black
 - Testing with pytest
+- Pre commit hooks for CI checks
 
 ## Future
 
@@ -33,7 +34,7 @@ just --list
 - SQL migrations with Alembic
 - CI with CloudBuild
 - CD with CloudBuild
-- Pre commit hooks for all CI checks
+
 - CORS middleware
 - Settings via environment variables and .env file
 - More convention for organizing app code
