@@ -21,11 +21,15 @@ install:
     poetry install
 
 # Run the application locally.
-run-local:
+run-local: run-local-db
     poetry run uvicorn template_app.main:app --port 8080 --reload
 
+# Run postgres locally in docker.
+run-local-db:
+    docker compose up --wait
+
 # Run the application within local docker container.
-run-local-docker:
+run-local-docker: run-local-db
     poetry export -f requirements.txt --output requirements.txt
     pack build --builder=gcr.io/buildpacks/builder template-app
     docker run -it -ePORT=8080 -p8080:8080 template-app
