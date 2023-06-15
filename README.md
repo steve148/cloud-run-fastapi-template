@@ -26,13 +26,13 @@ just --list
 - Testing with pytest
 - Pre commit hooks for CI checks
 - SQL database with SQLAlchemy
+- SQL migrations with Alembic
+- Settings with pydantic via .env file
 
 ## Future
 
 - Load testing with locust
-- SQL migrations with Alembic
 - CI with CloudBuild
 - CD with CloudBuild
 - CORS middleware
-- Settings via environment variables and .env file
 - More convention for organizing app code
