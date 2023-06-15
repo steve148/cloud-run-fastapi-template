@@ -2,10 +2,10 @@ from fastapi import FastAPI
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+from template_app.settings import settings
+
 app = FastAPI()
 
 
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg://postgres:abc123@localhost:5432/app"
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(settings.pg_dsn, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

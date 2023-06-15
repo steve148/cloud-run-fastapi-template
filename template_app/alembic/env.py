@@ -4,6 +4,7 @@ from alembic import context
 from sqlalchemy import engine_from_config, pool
 
 from template_app.models.base_class import Base
+from template_app.settings import settings
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -28,7 +29,7 @@ target_metadata = Base.metadata
 
 
 def get_url() -> str:
-    return "postgresql+psycopg://postgres:abc123@localhost:5432/app"
+    return settings.pg_dsn
 
 
 def run_migrations_offline() -> None:
