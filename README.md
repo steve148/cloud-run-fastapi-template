@@ -28,11 +28,10 @@ just --list
 - SQL database with SQLAlchemy
 - SQL migrations with Alembic
 - Settings with pydantic via .env file
+- CORS middleware
 
 ## Future
 
 - Load testing with locust
 - CI with CloudBuild
 - CD with CloudBuild
-- CORS middleware
-- More convention for organizing app code
