@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "cloud-run-fastapi-template"
+name = "{{cookiecutter.project_name}}"
 version = "0.1.0"
-description = ""
-authors = ["Lennox Stevenson <lennox.stevenson@mail.utoronto.ca>"]
+description = "{{cookiecutter.description}}"
+authors = ["{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"]
 readme = "README.md"
-packages = [{include = "template_app"}]
+packages = [{include = "{{cookiecutter.project_slug}}"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

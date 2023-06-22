@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from template_app.api.v1 import router as api_v1_router
-from template_app.settings import settings
+from {{cookiecutter.project_slug}}.api.v1 import router as api_v1_router
+from {{cookiecutter.project_slug}}.settings import settings
 
 app = FastAPI()
 

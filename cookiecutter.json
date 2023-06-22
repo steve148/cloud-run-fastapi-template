@@ -1,0 +1,8 @@
+{
+    "project_title": "My Awesome Project",
+    "project_name": "{{ cookiecutter.project_title.lower()|replace(' ', '-')|replace('_', '-')|replace('.', '-')|trim() }}",
+    "project_slug": "{{ cookiecutter.project_title.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "description": "Behold My Awesome Project!",
+    "author_name": "John Doe",
+    "author_email": "john.doe@email.com"
+}

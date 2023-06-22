@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from template_app.settings import settings
+from {{cookiecutter.project_slug}}.settings import settings
 
 app = FastAPI()
 

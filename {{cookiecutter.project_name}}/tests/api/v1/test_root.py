@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from template_app.main import app
+from {{cookiecutter.project_slug}}.main import app
 
 client = TestClient(app)
 

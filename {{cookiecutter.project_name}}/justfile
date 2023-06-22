@@ -22,7 +22,7 @@ install:
 
 # Run the application locally.
 run-local: run-local-db
-    poetry run uvicorn template_app.main:app --port 8080 --reload
+    poetry run uvicorn {{cookiecutter.project_slug}}.main:app --port 8080 --reload
 
 # Run postgres locally in docker.
 run-local-db:
@@ -31,8 +31,8 @@ run-local-db:
 # Run the application within local docker container.
 run-local-docker: run-local-db
     poetry export -f requirements.txt --output requirements.txt
-    pack build --builder=gcr.io/buildpacks/builder template-app
-    docker run -it -ePORT=8080 -p8080:8080 template-app
+    pack build --builder=gcr.io/buildpacks/builder {{cookiecutter.project_name}}
+    docker run -it -ePORT=8080 -p8080:8080 {{cookiecutter.project_name}}
 
 # Push new version of service to Cloud run.
 deploy:
