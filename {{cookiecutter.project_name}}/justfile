@@ -21,22 +21,23 @@ install:
     poetry install
 
 # Run the application locally.
-run-local: run-local-db
+run-dev: run-dev-db
     poetry run uvicorn {{cookiecutter.project_slug}}.main:app --port 8080 --reload
 
 # Run postgres locally in docker.
-run-local-db:
+run-dev-db:
     docker compose up --wait
 
-# Run the application within local docker container.
-run-local-docker: run-local-db
-    poetry export -f requirements.txt --output requirements.txt
-    pack build --builder=gcr.io/buildpacks/builder {{cookiecutter.project_name}}
-    docker run -it -ePORT=8080 -p8080:8080 {{cookiecutter.project_name}}
+# Remove local postgres container and volume.
+rm-dev-db:
+    docker compose rm --force --stop --volumes
+    docker compose down --volumes
 
-# Push new version of service to Cloud run.
-deploy:
-    gcloud run deploy --source . --allow-unauthenticated
+cloud-sql-proxy:
+    ./cloud-sql-proxy pogon-155405:us-central1:task-master-pg13 --unix-socket /tmp/cloudsql
+
+run-prod:
+    ENV=prod poetry run uvicorn {{cookiecutter.project_slug}}.main:app --port 8080 --reload
 
 # Run all checks against code.
 check: format lint type-check
@@ -54,5 +55,5 @@ type-check:
     poetry run mypy .
 
 # Run all tests.
-test:
+test: run-dev-db
     poetry run pytest

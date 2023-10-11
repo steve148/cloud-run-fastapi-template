@@ -1,3 +1,1 @@
-from {{cookiecutter.project_slug}}.models.base_class import Base
-
-__all__ = ["Base"]
+"""SQLAlchemy models and queries used within the API."""

@@ -4,14 +4,16 @@ version = "0.1.0"
 description = "{{cookiecutter.description}}"
 authors = ["{{cookiecutter.author_name}} <{{cookiecutter.author_email}}>"]
 readme = "README.md"
-packages = [{include = "{{cookiecutter.project_slug}}"}]
+packages = [{ include = "{{cookiecutter.project_slug}}" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = {extras = ["all"], version = "^0.95.2"}
-sqlalchemy = "^2.0.16"
-psycopg = "^3.1.9"
-alembic = "^1.11.1"
+fastapi = { extras = ["all"], version = "^0.103.2" }
+sqlalchemy = { extras = ["asyncio"], version = "^2.0.21" }
+asyncpg = "^0.28.0"
+aiohttp = "^3.8.6"
+aiodns = "^3.1.0"
+google-cloud-logging = "^3.8.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -20,6 +22,9 @@ ruff = "^0.0.270"
 black = "^23.3.0"
 pytest = "^7.3.1"
 pre-commit = "^3.3.2"
+pytest-asyncio = "^0.21.1"
+faker = "^19.10.0"
+pytest-mock = "^3.11.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -30,4 +35,14 @@ strict = true
 plugins = ["sqlalchemy.ext.mypy.plugin", "pydantic.mypy"]
 
 [tool.ruff]
-select = ["E", "F", "UP", "I", "T10"]
+select = ["D", "E", "F", "UP", "I", "T10"]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--doctest-modules --durations=10"
